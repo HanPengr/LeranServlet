@@ -4,7 +4,7 @@
     <default-config>
         <property name="user">root</property>
         <property name="password">123456</property>
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/yonghedb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=Hongkong</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/yonghe02?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=Hongkong</property>
         <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
         <property name="checkoutTimeout">30000</property>
         <property name="idleConnectionTestPeriod">30</property>

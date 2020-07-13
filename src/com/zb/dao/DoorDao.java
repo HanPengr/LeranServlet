@@ -30,7 +30,6 @@ public class DoorDao {
         DBUtils.close(conn);
         return list;
     }
-
     public void addDoor(Door door) throws SQLException {
         Connection conn = DBUtils.getConnectionByDatasource();
         String sql = "insert into tb_door values (null,?,?,?)";
@@ -41,7 +40,6 @@ public class DoorDao {
         ps.executeUpdate();
         DBUtils.close(conn);
     }
-
     public void delDoor(Integer id) throws SQLException {
         Connection conn = DBUtils.getConnectionByDatasource();
         String sql = "delete from tb_door where id=?";
@@ -71,8 +69,8 @@ public class DoorDao {
         }
         return door;
     }
-
     public void updateDoor(Door door)throws SQLException{
+
         Connection conn = DBUtils.getConnectionByDatasource();
         String sql = "update tb_door set name=?,tel=?,addr=? where id=?";
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -83,5 +81,26 @@ public class DoorDao {
         ps.executeUpdate();
         DBUtils.close(conn);
 
+    }
+    public List<Door> showSale(){
+        Connection conn = DBUtils.getConnectionByDatasource();
+        String sql = "select name,sale from tb_door";
+        List<Door> list = new ArrayList<>();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Door door =null;
+            while(rs.next()){
+                door = new Door();
+                door.setName(rs.getString("name"));
+                door.setSale(rs.getInt("sale"));
+                list.add(door);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBUtils.close(conn);
+        }
+        return list;
     }
 }

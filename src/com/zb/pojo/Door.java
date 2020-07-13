@@ -5,6 +5,15 @@ public class Door {
     private String name;
     private String tel;
     private String addr;
+    private int sale;
+
+    public int getSale() {
+        return sale;
+    }
+
+    public void setSale(int sale) {
+        this.sale = sale;
+    }
 
     @Override
     public String toString() {
